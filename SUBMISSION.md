@@ -2,7 +2,7 @@
 
 ## Links
 - **GitHub Repository**: https://github.com/Siddhartha-singh01/Ajaia-LLC---AI-Native-Full-Stack-Developer-Assignment
-- **Live URL**: *(User to provide Vercel URL)*
+- **Live URL**: https://ajaia-llc-ai-native-full-stack-deve.vercel.app/
 - **Video Walkthrough**: *(User to provide Loom link)*
 
 ## Core Features Included

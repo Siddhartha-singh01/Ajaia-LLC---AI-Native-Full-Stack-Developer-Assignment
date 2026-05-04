@@ -3,7 +3,7 @@
 A lightweight collaborative document editor. Create, edit, and share documents with rich text formatting.
 
 ## Live URL
-https://YOUR-VERCEL-URL.vercel.app
+https://ajaia-llc-ai-native-full-stack-deve.vercel.app/
 
 ## Test Accounts (pre-seeded)
 Switch users using the dropdown in the top-right corner.
