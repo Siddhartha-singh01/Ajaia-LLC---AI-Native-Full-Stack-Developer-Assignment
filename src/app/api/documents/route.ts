@@ -63,11 +63,13 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(document, { status: 201 })
   } catch (error: any) {
-    console.error('[DOCS_POST_ERROR]', error)
+    console.error('[DOCS_POST_ERROR_FULL]', error)
     return NextResponse.json({ 
       error: 'Failed to create document', 
       details: error.message,
-      code: error.code // Prisma error code (like P2002)
+      code: error.code,
+      meta: error.meta,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     }, { status: 500 })
   }
 }
