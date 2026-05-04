@@ -39,7 +39,7 @@ export function Editor({ content, onChange, editable = true }: EditorProps) {
     if (!editor || editor.isDestroyed) return
     try {
       const parsed = content ? JSON.parse(content) : ''
-      editor.commands.setContent(parsed, false) // false = don't emit update event
+      editor.commands.setContent(parsed, { emitUpdate: false }) // don't emit update event
     } catch {}
   }, [content, editor])
 
