@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = env("DATABASE_PROVIDER")
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id
+  email     String   @unique
+  name      String
+  createdAt DateTime @default(now())
+
+  ownedDocuments Document[] @relation("owner")
+  sharedWithMe   Share[]    @relation("sharedUser")
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  title     String   @default("Untitled Document")
+  content   String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ownerId String
+  owner   User   @relation("owner", fields: [ownerId], references: [id])
+
+  shares Share[]
+}
+
+model Share {
+  id        String   @id @default(cuid())
+  grantedAt DateTime @default(now())
+
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation("sharedUser", fields: [userId], references: [id])
+
+  @@unique([documentId, userId])
+}
