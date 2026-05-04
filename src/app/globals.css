@@ -48,6 +48,23 @@ body {
   animation: entrance 0.4s ease-out forwards;
 }
 
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-slow {
+  0% { transform: translateY(0px) rotate(12deg); }
+  50% { transform: translateY(-40px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(12deg); }
+}
+
+.animate-float { animation: float 10s ease-in-out infinite; }
+.animate-float-delayed { animation: float 12s ease-in-out infinite 2s; }
+.animate-float-slow { animation: float-slow 15s ease-in-out infinite; }
+.animate-float-slow-delayed { animation: float-slow 18s ease-in-out infinite 3s; }
+
 /* Editor prose */
 .ProseMirror p.is-editor-empty:first-child::before {
   color: #a1a1aa;
